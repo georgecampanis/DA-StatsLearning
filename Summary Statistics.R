@@ -11,6 +11,7 @@
 # Purpose: Teaching Summary Stats to DA Group 
 ###################################################################
 
+
 #*----------------------------------------------------------------
 # Notes: 
 # Execute script block -      then Ctrl + Enter
@@ -38,6 +39,7 @@ sin(pi / 2)
 
 # var assignment
 x <- 3 * 4
+x = 3 * 4
 
 # display var
 x
@@ -49,11 +51,22 @@ seq(1, 10)
 # enclose in parentheses to display automatically after assignment
 (y <- seq(1, 10, length.out = 5))
 
+?seq()
+?sd()
 
 # press  Alt + Shift + K and see what happens
 
 library(nycflights13)
 library(tidyverse)
+
+?dplyr::filter() 
+?stats::filter()
+
+?filter() 
+
+
+
+
 
 # show flights data
 flights # data type is a tibble ---more on this later
