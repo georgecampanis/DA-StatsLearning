@@ -5,6 +5,10 @@
 mHtWt <- read.csv(file.choose())
 
 head(mHtWt, 10)
+View(mHtWt)
+
+str(mHtWt)
+
 
 # plot relationship
 plot(mHtWt$Weight, mHtWt$Height, main="Male Weight and Heights ",
@@ -13,6 +17,9 @@ plot(mHtWt$Weight, mHtWt$Height, main="Male Weight and Heights ",
 # Add fit lines
 abline(lm(mHtWt$Height~mHtWt$Weight), col="red") # regression line (y~x)
 
+?cor
 
 (res <- cor.test(mHtWt$Weight, mHtWt$Height, 
                  method = "pearson"))
+
+(res <- cor.test(mHtWt$Height, mHtWt$Weight, method = "pearson"))

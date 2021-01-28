@@ -96,6 +96,7 @@ num_data <- c(3, 7, 2)# numeric series without decimals
 
 class(num_data) # identifies class of data
 
+typeof(num_data) # to get data type
 
 num_data_dec <- c(3.4, 7.1, 2.9)
 class(num_data_dec)
@@ -154,8 +155,8 @@ value1 <- 7
 value2 <- 9
 
 # is value1 greater than value2?
-greater <- value1 > value2
-greater
+(greater <- value1 > value2)
+
 class(greater)
 
 # is value1 less than or equal to value2?
@@ -168,6 +169,7 @@ greater_num
 
 # also we can take an int and get a logical
 x <- 0
+typeof(x)
 as.logical(x)
 
 
@@ -182,7 +184,9 @@ as.logical(x)
 
 dat <- iris # load the iris dataset and renamed it dat
 
-head(dat) # first 6 observations
+View(iris)
+
+head(dat,25) # first 6 observations
 str(dat) # structure of dataset
 
 levels(iris$Species) # note $ refers to col
@@ -194,7 +198,7 @@ levels(iris$Species) # note $ refers to col
 min(dat$Sepal.Length)
 max(dat$Sepal.Length)
 
-
+#================================= START HERE!!!!!
 #############
 # RANGE
 #############
