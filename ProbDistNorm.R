@@ -5,8 +5,8 @@ View(fHtWt)
 
 str(fHtWt)
 
-histogram(fHtWt$Height)
-histogram(fHtWt$Weight)
+hist(fHtWt$Height)
+hist(fHtWt$Weight)
 # ref: http://www.stat.umn.edu/geyer/old/5101/rlook.html
 # https://www.datascienceblog.net/post/basic-statistics/distributions/
 # https://www.statology.org/dnorm-pnorm-rnorm-qnorm-in-r/
