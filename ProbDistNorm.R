@@ -1,3 +1,13 @@
+
+
+######################################################################
+
+# Norm Dist
+# Author: George Campanis
+# Date: 4-Feb-2021
+# Purpose: Teaching Summary Stats to DA Group 
+###################################################################
+
 fHtWt <- read.csv(file.choose())
 
 head(fHtWt, 10)
@@ -56,3 +66,60 @@ pnorm(100, mean=mu, sd=sdev) - pnorm(60, mean=mu, sd=sdev)
 
 # likelihood between 180-250 lbs
 pnorm(250, mean=mu, sd=sdev) - pnorm(180, mean=mu, sd=sdev)
+
+# 
+# Z-Scores
+# #----------------------------------------------------------
+
+#****************************
+# pnorm for z-score => Prob.
+#****************************
+
+# For above Mu examples use 1 - pnorm
+# e.g. prob. of weight above 2.0 sd = 1-0.9772499
+1-pnorm(2)
+
+# for prob. to the left pnorm(2)
+pnorm(2)
+
+# for prob between sd -1.28 and 0.72
+pnorm(0.72)-pnorm(-1.28)
+
+#****************************
+# qnorm for Prob.  => z-score
+#****************************
+qnorm(0.975) # 1.959964
+
+#***********************
+# z-score all the data
+#***********************
+fHtWt$WeightZ=as.vector(scale(fHtWt$Weight))
+head(fHtWt[,c("Weight","WeightZ")])
+
+hist(fHtWt$WeightZ)
+d <- density(fHtWt$WeightZ)
+plot(d)
+
+#---------------------------
+# Test normality
+#---------------------------
+
+#********************
+# #Shapiro-Wilk test
+# ******************
+# The Shapiro-Wilk test for normality is available when using the Distribution platform to examine a continuous variable. 
+# The null hypothesis for this test is that the data are normally distributed.
+# If the p-value is greater than 0.05, then the null hypothesis is not rejected.
+
+shapiro.test(fHtWt$Weight)
+
+
+#********************
+# #Shapiro-Wilk test
+# ******************
+qqnorm(fHtWt$Weight, pch = 1, frame = FALSE)
+qqline(fHtWt$Weight, col = "steelblue", lwd = 2)
+
+install.packages("car")
+library(car)
+qqPlot(fHtWt$Weight)
