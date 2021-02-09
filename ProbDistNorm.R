@@ -82,6 +82,7 @@ pnorm(250, mean=mu, sd=sdev) - pnorm(180, mean=mu, sd=sdev)
 # for prob. to the left pnorm(2)
 pnorm(2)
 
+
 # for prob between sd -1.28 and 0.72
 pnorm(0.72)-pnorm(-1.28)
 
@@ -93,8 +94,16 @@ qnorm(0.975) # 1.959964
 #***********************
 # z-score all the data
 #***********************
+
+
+
 fHtWt$WeightZ=as.vector(scale(fHtWt$Weight))
 head(fHtWt[,c("Weight","WeightZ")])
+# shows bottom of the data
+tail(fHtWt[,c("Weight","WeightZ")],1000)
+
+1-pnorm(3.489406)
+
 
 hist(fHtWt$WeightZ)
 d <- density(fHtWt$WeightZ)
