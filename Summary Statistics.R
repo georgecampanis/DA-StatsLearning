@@ -273,8 +273,12 @@ variance= (sd(dat$Sepal.Length))^2
 stdDev = sqrt(variance)
 # computed using sample formulae i.e. n-1
 
-lapply(dat[, 1:4], sd)
+o=lapply(dat[, 1:4], sd)
+o[4]
 
+
+
+head(dat)
 # selecting individual cols dat[, 1:4]
 # lapply vs sapply ?
 
