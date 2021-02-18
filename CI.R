@@ -25,3 +25,8 @@ mydata_ls <- mydata[index_l, ]
 
 # see that the larger the sample sz the better the result
 CI(mydata_ls$Sepal.Length, ci=0.95)
+
+
+# Example in PPT
+x=c(71,72,75,64,64,63,67,65,70,67,68,70,72,70,65)
+CI(x, ci=0.99)
