@@ -32,7 +32,7 @@ scatter.smooth(x=mtcars$wt, y=mtcars$mpg, main="Mpg ~ Wt")  # scatterplot
 # calculate correlation between Wt and Mpg
 cor(mtcars$wt, mtcars$mpg)  
 
-# build linear regression model on full data
+# build linear regression model 
 linearMod <- lm(mpg ~ wt, data=mtcars)  
 print(linearMod)
 
@@ -60,8 +60,6 @@ print(lmModel)
 # Multiple linear regression model
 model <- train(mpg ~ ., data = mtcars, method = "lm")
 
-# Taining model
-lmModel <- lm(Price ~ . , data = train)
 # Printing the model object
 print(lmModel)
 
@@ -143,8 +141,9 @@ modelLR.cv <- train(mpg ~ ., data = mtcars,method = "lm", trControl = fitControl
 
 modelLR.cv
 
-# Ridge regression model
-modelLasso.cv <- train(mpg ~ .,data = mtcars, method = "ridge", trControl = fitControl) # Try using "lasso"
+modelLR.cv <- train(mpg ~ ., data = mtcars,method = "ridge", trControl = fitControl)  
+
+modelLR.cv
 
 ############################
 # PreProcess
@@ -167,6 +166,13 @@ modelLasso.cv <- train(mpg ~ .,data = mtcars, method = "ridge", trControl = fitC
 
 modelLasso.cv 
 
+modelLasso.cv <- train(mpg ~ .,data = mtcars, method = "ridge", trControl = fitControl,
+                       preProcess = "pca") # default: no pre-processing
+
+modelLasso.cv 
+
+
+
 ########################################################
 #Finding the model hyper-parameters
 ########################################################
@@ -183,6 +189,8 @@ modelLasso.cv
 # Feature Importance
 ########################################################
 ggplot(varImp(modelLasso.cv))
+ggplot(varImp(modelLR.cv))
+
 
 ########################################################
 # Make Predictions
